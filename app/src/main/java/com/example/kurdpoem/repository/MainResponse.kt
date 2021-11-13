@@ -4,8 +4,7 @@ import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import com.example.kurdpoem.api.ApiClient
 import com.example.kurdpoem.api.ApiService
-import com.example.kurdpoem.model.AllPoemModel
-import com.example.kurdpoem.model.NewsBannerModel
+import com.example.kurdpoem.model.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -55,5 +54,110 @@ class MainResponse {
         })
 
         return mutableLiveDataAllPoem
+    }
+
+    fun getAllBooksMutableLiveData(): MutableLiveData<List<AllBooksModel>>{
+
+        val mutableLiveDataAllBooks = MutableLiveData<List<AllBooksModel>>()
+
+        request.getAllBooks().enqueue(object : Callback<List<AllBooksModel>>{
+            override fun onResponse(
+                call: Call<List<AllBooksModel>>,
+                response: Response<List<AllBooksModel>>
+            ) {
+                mutableLiveDataAllBooks.value = response.body()
+            }
+
+            override fun onFailure(call: Call<List<AllBooksModel>>, t: Throwable) {
+                Log.i("Error" , "onFailure" + t.message)
+            }
+
+
+        })
+        return mutableLiveDataAllBooks
+    }
+
+    fun getMutableLiveDataPoemDetail(id: String): MutableLiveData<List<PoemDetailModel>>{
+
+        val mutableLiveDataPoemDetail = MutableLiveData<List<PoemDetailModel>>()
+
+        request.getPoemDetail(id).enqueue(object : Callback<List<PoemDetailModel>>{
+            override fun onResponse(
+                call: Call<List<PoemDetailModel>>,
+                response: Response<List<PoemDetailModel>>
+            ) {
+                mutableLiveDataPoemDetail.value = response.body()
+            }
+
+            override fun onFailure(call: Call<List<PoemDetailModel>>, t: Throwable) {
+                Log.i("Error" , "onFailure" + t.message)
+            }
+
+        })
+        return mutableLiveDataPoemDetail
+    }
+
+    fun getMutableLiveDataAllBooksList(): MutableLiveData<List<AllBooksModel>>{
+
+        val mutableLiveDataAllBooksList = MutableLiveData<List<AllBooksModel>>()
+
+        request.getAllBooksList().enqueue(object : Callback<List<AllBooksModel>>{
+            override fun onResponse(
+                call: Call<List<AllBooksModel>>,
+                response: Response<List<AllBooksModel>>
+            ) {
+                mutableLiveDataAllBooksList.value = response.body()
+            }
+
+            override fun onFailure(call: Call<List<AllBooksModel>>, t: Throwable) {
+                Log.i("Error" , "onFailure" + t.message)
+
+            }
+
+        })
+        return mutableLiveDataAllBooksList
+    }
+
+    fun getMutableLiveDataBooksOfPoem(id: String): MutableLiveData<List<AllBooksModel>>{
+
+        val mutableLiveDataBooksOfPoem = MutableLiveData<List<AllBooksModel>>()
+
+        request.getBooksOfPoem(id).enqueue(object : Callback<List<AllBooksModel>>{
+            override fun onResponse(
+                call: Call<List<AllBooksModel>>,
+                response: Response<List<AllBooksModel>>
+            ) {
+                mutableLiveDataBooksOfPoem.value = response.body()
+            }
+
+            override fun onFailure(call: Call<List<AllBooksModel>>, t: Throwable) {
+                Log.i("Error" , "onFailure" + t.message)
+            }
+
+
+        })
+        return mutableLiveDataBooksOfPoem
+    }
+
+    fun getMutableLiveDataBookDetail(id: String): MutableLiveData<List<BookDetailModel>>{
+
+        val mutableLiveDataBookDetail = MutableLiveData<List<BookDetailModel>>()
+
+        request.getBookDetail(id).enqueue(object : Callback<List<BookDetailModel>>{
+            override fun onResponse(
+                call: Call<List<BookDetailModel>>,
+                response: Response<List<BookDetailModel>>
+            ) {
+                mutableLiveDataBookDetail.value = response.body()
+            }
+
+            override fun onFailure(call: Call<List<BookDetailModel>>, t: Throwable) {
+                Log.i("Error" , "onFailure" + t.message)
+            }
+
+
+        })
+
+        return mutableLiveDataBookDetail
     }
 }

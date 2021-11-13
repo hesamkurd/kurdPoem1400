@@ -3,10 +3,19 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/FUJITSU/AndroidStudioProjects/kurdPoem1400/app/src/main/res/drawable/bg_item.xml" value="0.17083333333333334" />
         <entry key="..\:/Users/FUJITSU/AndroidStudioProjects/kurdPoem1400/app/src/main/res/layout/activity_main.xml" value="0.16" />
+        <entry key="..\:/Users/FUJITSU/AndroidStudioProjects/kurdPoem1400/app/src/main/res/layout/bg_searchview.xml" value="0.5" />
+        <entry key="..\:/Users/FUJITSU/AndroidStudioProjects/kurdPoem1400/app/src/main/res/layout/fragment_all_books.xml" value="0.33" />
+        <entry key="..\:/Users/FUJITSU/AndroidStudioProjects/kurdPoem1400/app/src/main/res/layout/fragment_book_detail.xml" value="0.1546875" />
         <entry key="..\:/Users/FUJITSU/AndroidStudioProjects/kurdPoem1400/app/src/main/res/layout/fragment_home.xml" value="0.33" />
+        <entry key="..\:/Users/FUJITSU/AndroidStudioProjects/kurdPoem1400/app/src/main/res/layout/fragment_poem.xml" value="0.25" />
+        <entry key="..\:/Users/FUJITSU/AndroidStudioProjects/kurdPoem1400/app/src/main/res/layout/item_all_book.xml" value="0.33" />
         <entry key="..\:/Users/FUJITSU/AndroidStudioProjects/kurdPoem1400/app/src/main/res/layout/item_all_poem.xml" value="0.33" />
+        <entry key="..\:/Users/FUJITSU/AndroidStudioProjects/kurdPoem1400/app/src/main/res/layout/item_book_detail.xml" value="0.33" />
+        <entry key="..\:/Users/FUJITSU/AndroidStudioProjects/kurdPoem1400/app/src/main/res/layout/item_new_books.xml" value="0.1546875" />
         <entry key="..\:/Users/FUJITSU/AndroidStudioProjects/kurdPoem1400/app/src/main/res/layout/item_news_banner.xml" value="0.33" />
+        <entry key="..\:/Users/FUJITSU/AndroidStudioProjects/kurdPoem1400/app/src/main/res/layout/item_poem_detail.xml" value="0.33" />
         <entry key="..\:/Users/FUJITSU/AndroidStudioProjects/kurdPoem1400/app/src/main/res/menu/main_bottom_navigation.xml" value="0.1546875" />
       </map>
     </option>

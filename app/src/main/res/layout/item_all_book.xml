@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    >
+
+    <data>
+
+        <variable
+            name="myAllBooks"
+            type="com.example.kurdpoem.model.AllBooksModel" />
+    </data>
+
+<androidx.cardview.widget.CardView
+    android:layout_width="match_parent"
+    android:layout_height="130dp"
+    android:layout_margin="8dp"
+    app:cardCornerRadius="10dp"
+    app:cardElevation="8dp">
+
+    <com.makeramen.roundedimageview.RoundedImageView
+        android:layout_width="90dp"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:loadImageBooks="@{myAllBooks.link_img}"
+        android:layout_gravity="right"
+        app:riv_corner_radius="8dp"
+        android:layout_margin="4dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@{myAllBooks.name , default = بۆکوردستان}"
+        android:textSize="16sp"
+        android:textColor="@color/black"
+        android:fontFamily="@font/ir_sans_b"
+        android:layout_gravity="right"
+        android:layout_marginRight="110dp"
+        android:layout_marginTop="50dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@{myAllBooks.poem , default = هەژار}"
+        android:textSize="14sp"
+        android:textColor="#646363"
+        android:fontFamily="@font/ir_sans_b"
+        android:layout_gravity="right"
+        android:layout_marginRight="110dp"
+        android:layout_marginTop="90dp"/>
+
+
+</androidx.cardview.widget.CardView>
+
+</layout>

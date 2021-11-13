@@ -4,45 +4,44 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragment.HomeFragment"
-    android:layoutDirection="rtl">
+    android:layoutDirection="rtl"
+    tools:context=".fragment.HomeFragment">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/myToolbar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        app:layout_constraintEnd_toEndOf="parent"
         android:elevation="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="شاعیرانی کورد"
-            android:fontFamily="@font/ir_sans_b"
-            android:textSize="16sp"
             android:layout_gravity="right"
             android:layout_marginRight="12dp"
+            android:fontFamily="@font/ir_sans_b"
+            android:text="شاعیرانی کورد"
             android:textColor="@color/primary_red"
-            />
+            android:textSize="16sp" />
 
         <ImageView
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_gravity="left"
             android:layout_marginLeft="12dp"
-            android:src="@drawable/icon"/>
+            android:src="@drawable/icon" />
 
     </androidx.appcompat.widget.Toolbar>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="0dp"
         android:layout_height="0dp"
-        app:layout_constraintTop_toBottomOf="@id/myToolbar"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent">
+        app:layout_constraintTop_toBottomOf="@id/myToolbar">
 
         <androidx.coordinatorlayout.widget.CoordinatorLayout
             android:layout_width="match_parent"
@@ -53,6 +52,7 @@
                 android:layout_height="match_parent">
 
                 <LinearLayout
+                    android:id="@+id/main_linearLayout"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="vertical">
@@ -63,35 +63,36 @@
                         android:layout_height="170dp"
                         android:layout_marginTop="12dp"
                         android:paddingLeft="80dp"
-                        android:paddingRight="80dp"/>
+                        android:paddingRight="80dp" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="دوایین هەواڵ و بەرهەمەکان"
                         android:layout_gravity="center"
-                        android:textColor="@color/primary_red"
+                        android:layout_marginTop="6dp"
                         android:fontFamily="@font/nrt"
-                        android:textSize="16sp"
-                        android:layout_marginTop="6dp"/>
+                        android:text="دوایین هەواڵ و بەرهەمەکان"
+                        android:textColor="@color/primary_red"
+                        android:textSize="16sp" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="right"
                         android:layout_marginTop="24dp"
-                        android:fontFamily="@font/ir_sans_b"
                         android:layout_marginRight="12dp"
-                        android:text="هەموو شاعیرەکان"/>
+                        android:fontFamily="@font/ir_sans_b"
+                        android:text="هەموو شاعیرەکان"
+                        android:textColor="#000" />
 
                     <androidx.cardview.widget.CardView
                         android:layout_width="match_parent"
                         android:layout_height="300dp"
-                        android:layout_marginTop="12dp"
                         android:layout_marginLeft="36dp"
+                        android:layout_marginTop="12dp"
                         android:layout_marginRight="36dp"
-                        app:cardBackgroundColor="@color/primary_light"
                         android:layout_marginBottom="6dp"
+                        app:cardBackgroundColor="@color/primary_light"
                         app:cardCornerRadius="10dp"
                         app:cardElevation="10dp">
 
@@ -99,6 +100,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:orientation="vertical">
+
                             <androidx.appcompat.widget.Toolbar
                                 android:id="@+id/toolbar_poem"
                                 android:layout_width="match_parent"
@@ -110,34 +112,69 @@
                                     android:layout_height="match_parent"
                                     android:orientation="horizontal"
                                     android:weightSum="10">
+
                                     <EditText
                                         android:id="@+id/edt_search"
                                         android:layout_width="0dp"
                                         android:layout_height="match_parent"
                                         android:layout_weight="8"
+                                        android:background="@color/white"
+                                        android:drawableRight="@drawable/ic_search_24"
                                         android:drawablePadding="10dp"
                                         android:fontFamily="@font/ir_sans_b"
-                                        android:drawableRight="@drawable/ic_search_24"
-                                        android:background="@color/white"
-                                        android:hint="لێگەڕە ..."/>
+                                        android:hint="لێگەڕە ..." />
+
                                     <ImageView
                                         android:id="@+id/btn_sort"
                                         android:layout_width="0dp"
                                         android:layout_height="match_parent"
                                         android:layout_weight="2"
                                         android:padding="6dp"
-                                        android:src="@drawable/ic_sort_24"/>
+                                        android:src="@drawable/ic_sort_24" />
 
                                 </LinearLayout>
 
                             </androidx.appcompat.widget.Toolbar>
+
                             <androidx.recyclerview.widget.RecyclerView
                                 android:id="@+id/recycler_poem"
                                 android:layout_width="match_parent"
-                                android:layout_height="match_parent"/>
+                                android:layout_height="match_parent" />
                         </LinearLayout>
 
                     </androidx.cardview.widget.CardView>
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="right"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginRight="12dp"
+                        android:fontFamily="@font/ir_sans_b"
+                        android:text="نوێترین کتێبەکان"
+                        android:textColor="#000" />
+
+                    <TextView
+                        android:id="@+id/txt_go_fragment_all_books"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="left"
+                        android:layout_marginLeft="12dp"
+                        android:fontFamily="@font/ir_sans_b"
+                        android:paddingLeft="4dp"
+                        android:paddingRight="4dp"
+                        android:paddingBottom="8dp"
+                        android:text="هەموو >"
+                        android:textSize="12dp" />
+
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/recycler_new_books"
+                        android:layout_width="match_parent"
+                        android:layout_height="200dp"
+                        android:layout_marginBottom="24dp" />
+
                 </LinearLayout>
             </androidx.core.widget.NestedScrollView>
         </androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -1,8 +1,7 @@
 package com.example.kurdpoem.repository
 
 import androidx.lifecycle.LiveData
-import com.example.kurdpoem.model.AllPoemModel
-import com.example.kurdpoem.model.NewsBannerModel
+import com.example.kurdpoem.model.*
 
 class Repository {
 
@@ -16,5 +15,30 @@ class Repository {
     fun getRepositoryAllPoem(): LiveData<List<AllPoemModel>>{
 
         return mainResponse.getAllPoemMutableLiveData()
+    }
+
+    fun getRepositoryAllBooks(): LiveData<List<AllBooksModel>>{
+
+        return mainResponse.getAllBooksMutableLiveData()
+    }
+
+    fun getRepositoryPoemDetail(id: String): LiveData<List<PoemDetailModel>>{
+
+        return mainResponse.getMutableLiveDataPoemDetail(id)
+    }
+
+    fun getRepositoryAllBooksList(): LiveData<List<AllBooksModel>>{
+
+        return mainResponse.getMutableLiveDataAllBooksList()
+    }
+
+    fun getRepositoryBooksOfPoem(id: String): LiveData<List<AllBooksModel>>{
+
+        return mainResponse.getMutableLiveDataBooksOfPoem(id)
+    }
+
+    fun getRepositoryBookDetail(id: String): LiveData<List<BookDetailModel>>{
+
+        return mainResponse.getMutableLiveDataBookDetail(id)
     }
 }
