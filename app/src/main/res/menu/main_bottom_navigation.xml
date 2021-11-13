@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:id="@+id/homeFragment"
+        android:title="ماڵەوە"
+        android:icon="@drawable/ic_home_24"/>
+
+    <item android:id="@+id/searchFragment"
+        android:title="لێگەڕین"
+        android:icon="@drawable/ic_search_24"/>
+
+    <item android:id="@+id/favoriteFragment"
+        android:title="جیاوازەکان"
+        android:icon="@drawable/ic_favorite_24"/>
+
+    <item android:id="@+id/profileFragment"
+        android:title="پڕۆفایل"
+        android:icon="@drawable/ic_profile_24"/>
+
+</menu>

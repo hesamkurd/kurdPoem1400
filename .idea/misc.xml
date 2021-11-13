@@ -3,7 +3,11 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/FUJITSU/AndroidStudioProjects/kurdPoem1400/app/src/main/res/layout/activity_main.xml" value="0.25" />
+        <entry key="..\:/Users/FUJITSU/AndroidStudioProjects/kurdPoem1400/app/src/main/res/layout/activity_main.xml" value="0.16" />
+        <entry key="..\:/Users/FUJITSU/AndroidStudioProjects/kurdPoem1400/app/src/main/res/layout/fragment_home.xml" value="0.33" />
+        <entry key="..\:/Users/FUJITSU/AndroidStudioProjects/kurdPoem1400/app/src/main/res/layout/item_all_poem.xml" value="0.33" />
+        <entry key="..\:/Users/FUJITSU/AndroidStudioProjects/kurdPoem1400/app/src/main/res/layout/item_news_banner.xml" value="0.33" />
+        <entry key="..\:/Users/FUJITSU/AndroidStudioProjects/kurdPoem1400/app/src/main/res/menu/main_bottom_navigation.xml" value="0.1546875" />
       </map>
     </option>
   </component>
