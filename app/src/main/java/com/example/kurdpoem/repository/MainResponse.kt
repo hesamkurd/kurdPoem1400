@@ -160,4 +160,70 @@ class MainResponse {
 
         return mutableLiveDataBookDetail
     }
+
+    fun getMutableLiveDataContentBook(id: String): MutableLiveData<List<ContentBookModel>>{
+
+        val mutableLiveDataContentBook = MutableLiveData<List<ContentBookModel>>()
+
+        request.getContentBook(id).enqueue(object : Callback<List<ContentBookModel>>{
+            override fun onResponse(
+                call: Call<List<ContentBookModel>>,
+                response: Response<List<ContentBookModel>>
+            ) {
+                mutableLiveDataContentBook.value = response.body()
+            }
+
+            override fun onFailure(call: Call<List<ContentBookModel>>, t: Throwable) {
+                Log.i("Error" , "onFailure" + t.message)
+            }
+
+
+        })
+        return mutableLiveDataContentBook
+    }
+
+    fun getMutableLiveDataVerseDetail(id: String): MutableLiveData<List<VerseDetailModel>>{
+
+        val mutableLiveDataVerseDetail = MutableLiveData<List<VerseDetailModel>>()
+
+        request.getVerseDetail(id).enqueue(object : Callback<List<VerseDetailModel>>{
+            override fun onResponse(
+                call: Call<List<VerseDetailModel>>,
+                response: Response<List<VerseDetailModel>>
+            ) {
+                mutableLiveDataVerseDetail.value = response.body()
+            }
+
+            override fun onFailure(call: Call<List<VerseDetailModel>>, t: Throwable) {
+                Log.i("Error" , "onFailure" + t.message)
+
+            }
+
+
+        })
+
+        return mutableLiveDataVerseDetail
+    }
+
+    fun getMutableLiveDataVerse(id: String): MutableLiveData<List<VerseModel>>{
+
+        val mutableLiveDataVerse = MutableLiveData<List<VerseModel>>()
+
+        request.getVerse(id).enqueue(object : Callback<List<VerseModel>>{
+            override fun onResponse(
+                call: Call<List<VerseModel>>,
+                response: Response<List<VerseModel>>
+            ) {
+                mutableLiveDataVerse.value = response.body()
+            }
+
+            override fun onFailure(call: Call<List<VerseModel>>, t: Throwable) {
+                Log.i("Error" , "onFailure" + t.message)
+            }
+
+
+        })
+        return mutableLiveDataVerse
+    }
+
 }

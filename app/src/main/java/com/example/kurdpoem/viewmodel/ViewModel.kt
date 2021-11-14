@@ -44,4 +44,19 @@ class ViewModel : ViewModel() {
 
         return repository.getRepositoryBookDetail(id)
     }
+
+    fun getContentBookViewModel(id: String): LiveData<List<ContentBookModel>>{
+
+        return repository.getRepositoryContentBook(id)
+    }
+
+    fun getVerseDetailViewModel(id: String): LiveData<List<VerseDetailModel>>{
+
+        return repository.getRepositoryVerseDetail(id)
+    }
+
+    fun getVerseViewModel(id: String): LiveData<List<VerseModel>>{
+
+        return repository.getRepositoryVerse(id)
+    }
 }

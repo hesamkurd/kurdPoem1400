@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    >
+    
+    <data>
+        
+        <variable
+            name="myVerse"
+            type="com.example.kurdpoem.model.VerseModel" />
+    </data>
+
+<androidx.cardview.widget.CardView 
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingLeft="8dp"
+        android:paddingRight="8dp">
+        
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+          android:layout_gravity="right"
+            android:text="@{myVerse.couplet , default = کلفدگژگژسگفگللدفگکفدگسدلگژس}"
+            android:textSize="14sp"
+            android:textColor="@color/black"
+            android:layout_marginTop="8dp"
+            android:fontFamily="@font/nrt"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left"
+            android:layout_marginTop="8dp"
+            android:text="@{myVerse.couplet2 , default = ژسدفاژکدسفژاسفژکاسکدژفکاسدفه}"
+            android:textSize="14sp"
+            android:textColor="@color/black"
+            android:fontFamily="@font/nrt"/>
+        
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/black"
+            android:layout_marginTop="8dp"/>
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>
+
+</layout>

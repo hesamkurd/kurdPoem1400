@@ -31,6 +31,7 @@ import com.example.kurdpoem.viewmodel.ViewModel
 
 class HomeFragment : Fragment() {
 
+
     private lateinit var binding: FragmentHomeBinding
     private lateinit var newsBannerAdapter: NewsBannerAdapter
     private lateinit var allPoemAdapter: AllPoemAdapter
@@ -38,15 +39,22 @@ class HomeFragment : Fragment() {
     private lateinit var viewModel: ViewModel
     private lateinit var sliderHandler: Handler
     private lateinit var runnable: Runnable
-   private var id: String? = null
+    private var id: String? = null
 
     private lateinit var data_full: List<AllPoemModel>
+
+
 
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+
+
+       
+
+
         // Inflate the layout for this fragment
         //return inflater.inflate(R.layout.fragment_home, container, false)
 
@@ -59,7 +67,7 @@ class HomeFragment : Fragment() {
 
         viewModel.getNewsBannerViewModel().observe(viewLifecycleOwner, {
 
-           newsBannerAdapter = NewsBannerAdapter(requireContext(), it)
+            newsBannerAdapter = NewsBannerAdapter(requireContext(), it)
             binding.imageSlider.adapter = newsBannerAdapter
 
             binding.imageSlider.clipToPadding = false
@@ -79,15 +87,15 @@ class HomeFragment : Fragment() {
             sliderHandler = Handler()
             runnable = Runnable {
                 // binding.viewPager.currentItem = binding.viewPager.currentItem + 1
-                if (binding.imageSlider.currentItem < it.size -1){
-                    binding.imageSlider.currentItem = binding.imageSlider.currentItem +1
+                if (binding.imageSlider.currentItem < it.size - 1) {
+                    binding.imageSlider.currentItem = binding.imageSlider.currentItem + 1
                 } else {
                     binding.imageSlider.currentItem = 0
                 }
             }
 
             binding.imageSlider.registerOnPageChangeCallback(
-                object : ViewPager2.OnPageChangeCallback(){
+                object : ViewPager2.OnPageChangeCallback() {
 
                     override fun onPageSelected(position: Int) {
                         super.onPageSelected(position)
@@ -103,7 +111,7 @@ class HomeFragment : Fragment() {
         binding.recyclerPoem.layoutManager = LinearLayoutManager(requireContext())
         binding.recyclerPoem.hasFixedSize()
 
-        binding.edtSearch.addTextChangedListener(object : TextWatcher{
+        binding.edtSearch.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
 
             }
@@ -118,24 +126,24 @@ class HomeFragment : Fragment() {
         })
 
         binding.txtGoFragmentAllBooks.setOnClickListener {
-            Navigation.findNavController(binding.mainLinearLayout).navigate(R.id.action_homeFragment_to_allBooksFragment)
+            Navigation.findNavController(binding.mainLinearLayout)
+                .navigate(R.id.action_homeFragment_to_allBooksFragment)
         }
 
         data_full = ArrayList()
         binding.btnSort.setOnClickListener {
 
-            val option = arrayOf("ئەلفوبێ" , "مێژوو")
+            val option = arrayOf("ئەلفوبێ", "مێژوو")
 
             val dialog = AlertDialog.Builder(requireContext())
             dialog.setTitle("ریز کردن بە")
-                .setItems(option){ dialogInterFace , i ->
-                    if (i == 0){
+                .setItems(option) { dialogInterFace, i ->
+                    if (i == 0) {
                         dialogInterFace.dismiss()
                         data_full.sortedBy { it.name }
                         allPoemAdapter.notifyDataSetChanged()
 
-                    }
-                    else if(i == 1){
+                    } else if (i == 1) {
                         dialogInterFace.dismiss()
                         data_full.sortedByDescending { it.name }
                         allPoemAdapter.notifyDataSetChanged()
@@ -147,53 +155,58 @@ class HomeFragment : Fragment() {
         }
 
 
-        viewModel.getAllPoemViewModel().observe(viewLifecycleOwner , {
+        viewModel.getAllPoemViewModel().observe(viewLifecycleOwner, {
 
             allPoemAdapter = AllPoemAdapter(requireContext(),
                 it as ArrayList<AllPoemModel>, IItemClickListener = {
 
-                view, listPoem ->
+                        view, listPoem ->
 
-                val name = listPoem.name
-                val year = listPoem.year
-                val id = listPoem.id
+                    val name = listPoem.name
+                    val year = listPoem.year
+                    val id = listPoem.id
 
-                val list_data = AllPoemModel(id , name, year)
+                    val list_data = AllPoemModel(id, name, year)
 
-                val action = HomeFragmentDirections.actionHomeFragmentToPoemFragment()
+                    val action = HomeFragmentDirections.actionHomeFragmentToPoemFragment()
 
 
-                val bundle = Bundle()
-                bundle.putString("id", id)
-                bundle.putString("name", listPoem.name)
-                bundle.putString("year", listPoem.year)
+                    val bundle = Bundle()
+                    bundle.putString("id", id)
+                    bundle.putString("name", listPoem.name)
+                    bundle.putString("year", listPoem.year)
 
-                Navigation.findNavController(binding.recyclerPoem).navigate(R.id.action_homeFragment_to_poemFragment , bundle)
+                    Navigation.findNavController(binding.recyclerPoem)
+                        .navigate(R.id.action_homeFragment_to_poemFragment, bundle)
 
-            })
+                })
 
             binding.recyclerPoem.adapter = allPoemAdapter
 
         })
 
-        binding.recyclerNewBooks.layoutManager = LinearLayoutManager(requireContext(),LinearLayoutManager.HORIZONTAL ,false)
+        binding.recyclerNewBooks.layoutManager =
+            LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
         binding.recyclerNewBooks.hasFixedSize()
-        viewModel.getAllBooksViewModel().observe(viewLifecycleOwner ,{
+        viewModel.getAllBooksViewModel().observe(viewLifecycleOwner, {
 
-            newBooksBannerAdapter = NewBooksBannerAdapter(requireContext(), it, IItemClickListener = {
-                view, listBook ->
+            newBooksBannerAdapter = NewBooksBannerAdapter(
+                requireContext(),
+                it,
+                IItemClickListener = { view, listBook ->
 
-                val name = listBook.name
-                val poem = listBook.poem
-                val id = listBook.id
+                    val name = listBook.name
+                    val poem = listBook.poem
+                    val id = listBook.id
 
-                val bundle = Bundle()
-                bundle.putString("id", id)
-                bundle.putString("name" , listBook.name)
-                bundle.putString("poem", listBook.poem)
+                    val bundle = Bundle()
+                    bundle.putString("id", id)
+                    bundle.putString("name", listBook.name)
+                    bundle.putString("poem", listBook.poem)
 
-                Navigation.findNavController(binding.recyclerNewBooks).navigate(R.id.action_homeFragment_to_bookDetailFragment,bundle)
-            })
+                    Navigation.findNavController(binding.recyclerNewBooks)
+                        .navigate(R.id.action_homeFragment_to_bookDetailFragment, bundle)
+                })
             binding.recyclerNewBooks.adapter = newBooksBannerAdapter
         })
 
@@ -201,4 +214,5 @@ class HomeFragment : Fragment() {
 
         return binding.root
     }
+
 }

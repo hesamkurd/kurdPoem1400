@@ -53,5 +53,14 @@
         android:id="@+id/bookDetailFragment"
         android:name="com.example.kurdpoem.fragment.BookDetailFragment"
         android:label="fragment_book_detail"
-        tools:layout="@layout/fragment_book_detail" />
+        tools:layout="@layout/fragment_book_detail" >
+        <action
+            android:id="@+id/action_bookDetailFragment_to_verseFragment"
+            app:destination="@id/verseFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/verseFragment"
+        android:name="com.example.kurdpoem.fragment.VerseFragment"
+        android:label="fragment_verse"
+        tools:layout="@layout/fragment_verse" />
 </navigation>

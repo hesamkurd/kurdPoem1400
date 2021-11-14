@@ -33,4 +33,16 @@ interface ApiService {
     @FormUrlEncoded
     @POST("getBookDetail.php")
     fun getBookDetail(@Field("id")id: String): Call<List<BookDetailModel>>
+
+    @FormUrlEncoded
+    @POST("getContentBook.php")
+    fun getContentBook(@Field("id")id: String): Call<List<ContentBookModel>>
+
+    @FormUrlEncoded
+    @POST("getVerseDetail.php")
+    fun getVerseDetail(@Field("id")id: String): Call<List<VerseDetailModel>>
+
+    @FormUrlEncoded
+    @POST("getVerse.php")
+    fun getVerse(@Field("id")id: String): Call<List<VerseModel>>
 }

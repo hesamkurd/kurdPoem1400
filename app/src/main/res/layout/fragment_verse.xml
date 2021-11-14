@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".fragment.BookDetailFragment">
+    tools:context=".fragment.VerseFragment">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/myToolbar"
@@ -51,35 +51,23 @@
                     android:orientation="vertical">
 
                     <androidx.recyclerview.widget.RecyclerView
-                        android:id="@+id/recycler_book_detail"
+                        android:id="@+id/recycler_verse_detail"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="24dp"/>
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="ناوەرۆک"
-                        android:textSize="18sp"
-                        android:textColor="@color/primary_red"
-                        android:fontFamily="@font/nrt"
-                        android:layout_gravity="right"
-                        android:layout_marginRight="24dp"
-                        android:layout_marginTop="12dp"/>
-
                     <androidx.recyclerview.widget.RecyclerView
-                        android:id="@+id/recycler_content_books"
+                        android:id="@+id/recycler_verse"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="12dp"/>
-
-
+                        android:layout_marginTop="24dp"/>
                 </LinearLayout>
             </androidx.core.widget.NestedScrollView>
         </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
-
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

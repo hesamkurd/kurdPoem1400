@@ -41,4 +41,19 @@ class Repository {
 
         return mainResponse.getMutableLiveDataBookDetail(id)
     }
+
+    fun getRepositoryContentBook(id: String): LiveData<List<ContentBookModel>>{
+
+        return mainResponse.getMutableLiveDataContentBook(id)
+    }
+
+    fun getRepositoryVerseDetail(id: String): LiveData<List<VerseDetailModel>>{
+
+        return mainResponse.getMutableLiveDataVerseDetail(id)
+    }
+
+    fun getRepositoryVerse(id: String): LiveData<List<VerseModel>>{
+
+        return mainResponse.getMutableLiveDataVerse(id)
+    }
 }

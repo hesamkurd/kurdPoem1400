@@ -12,6 +12,7 @@ import com.example.kurdpoem.R
 import com.example.kurdpoem.adapter.AllBooksAdapter
 import com.example.kurdpoem.adapter.PoemDetailAdapter
 import com.example.kurdpoem.databinding.FragmentPoemBinding
+import com.example.kurdpoem.model.AllBooksModel
 import com.example.kurdpoem.viewmodel.ViewModel
 
 class PoemFragment : Fragment() {
@@ -53,7 +54,8 @@ class PoemFragment : Fragment() {
 
         viewModel.getBooksOfPoemViewModel(id).observe(viewLifecycleOwner , {
 
-            allBooksAdapter = AllBooksAdapter(requireContext(),it, IItemClickListener = {
+            allBooksAdapter = AllBooksAdapter(requireContext(),
+                it as ArrayList<AllBooksModel>, IItemClickListener = {
                     view, listBook ->
 
                 val id = listBook.id

@@ -6,9 +6,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.kurdpoem.R
 import com.example.kurdpoem.adapter.BookDetailAdapter
+import com.example.kurdpoem.adapter.ContentBookAdapter
 import com.example.kurdpoem.databinding.FragmentBookDetailBinding
 import com.example.kurdpoem.viewmodel.ViewModel
 
@@ -17,6 +19,7 @@ class BookDetailFragment : Fragment() {
 
     private lateinit var binding: FragmentBookDetailBinding
     private lateinit var bookDetailAdapter: BookDetailAdapter
+    private lateinit var contentBookAdapter: ContentBookAdapter
     private lateinit var viewModel: ViewModel
 
 
@@ -43,6 +46,27 @@ class BookDetailFragment : Fragment() {
 
             bookDetailAdapter = BookDetailAdapter(requireContext(),it)
             binding.recyclerBookDetail.adapter = bookDetailAdapter
+        })
+
+        binding.recyclerContentBooks.layoutManager = LinearLayoutManager(requireContext())
+        binding.recyclerContentBooks.hasFixedSize()
+
+
+        viewModel.getContentBookViewModel(id).observe(viewLifecycleOwner ,{
+            contentBookAdapter = ContentBookAdapter(requireContext(),it, IItemClickListener = {
+                view, listContent ->
+
+                val id = listContent.id
+                val name =listContent.name
+
+                val bundle = Bundle()
+                bundle.putString("id", listContent.id)
+                bundle.putString("name" , listContent.name)
+
+                Navigation.findNavController(binding.recyclerContentBooks).navigate(R.id.action_bookDetailFragment_to_verseFragment,bundle)
+            })
+            binding.recyclerContentBooks.adapter = contentBookAdapter
+
         })
 
 

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    >
+
+    <data>
+
+        <variable
+            name="myContentBook"
+            type="com.example.kurdpoem.model.ContentBookModel" />
+    </data>
+
+<androidx.cardview.widget.CardView
+
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp"
+    app:cardCornerRadius="8dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@{myContentBook.name , default = شیعرتازەمامۆستامەلەکشا}"
+        android:textSize="16sp"
+        android:textColor="@color/primary_blue"
+        android:fontFamily="@font/ir_sans_b"
+        android:layout_gravity="right|center_vertical"
+        android:layout_marginRight="4dp"/>
+
+
+
+</androidx.cardview.widget.CardView>
+
+</layout>
