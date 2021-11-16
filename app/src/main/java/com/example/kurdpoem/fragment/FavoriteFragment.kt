@@ -5,23 +5,29 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.lifecycle.ViewModelProvider
-import com.example.kurdpoem.R
-import com.example.kurdpoem.adapter.NewsBannerAdapter
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.kurdpoem.databinding.FragmentFavoriteBinding
-import com.example.kurdpoem.viewmodel.ViewModel
 
 class FavoriteFragment : Fragment() {
 
+    private lateinit var binding: FragmentFavoriteBinding
 
 
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_favorite, container, false)
+        //return inflater.inflate(R.layout.fragment_favorite, container, false)
+        binding = FragmentFavoriteBinding.inflate(inflater, container, false)
+
+        binding.recyclerFavorite.layoutManager = LinearLayoutManager(requireContext())
+        binding.recyclerFavorite.hasFixedSize()
+
+
+
+        return binding.root
 
 
 

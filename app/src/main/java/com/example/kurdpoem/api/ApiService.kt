@@ -45,4 +45,14 @@ interface ApiService {
     @FormUrlEncoded
     @POST("getVerse.php")
     fun getVerse(@Field("id")id: String): Call<List<VerseModel>>
+
+    @FormUrlEncoded
+    @POST("login.php")
+    fun sendLogin(@Field("phone")phone: String , @Field("password")password:String): Call<List<Users>>
+
+    @FormUrlEncoded
+    @POST("register.php")
+    fun sendRegister(@Field("email")email: String, @Field("phone")phone: String, @Field("password")password:String): Call<List<Users>>
+
+
 }

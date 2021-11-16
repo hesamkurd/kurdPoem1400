@@ -9,7 +9,9 @@ import com.example.kurdpoem.R
 import com.example.kurdpoem.databinding.ItemVerseBinding
 import com.example.kurdpoem.model.VerseModel
 
-class VerseAdapter(var context: Context, var data: List<VerseModel>): RecyclerView.Adapter<VerseAdapter.MyViewHolder>() {
+class VerseAdapter(
+    var context: Context,
+    var data: List<VerseModel>): RecyclerView.Adapter<VerseAdapter.MyViewHolder>() {
     class MyViewHolder(val binding: ItemVerseBinding): RecyclerView.ViewHolder(binding.root) {
 
         fun setDataVerse(data: VerseModel){

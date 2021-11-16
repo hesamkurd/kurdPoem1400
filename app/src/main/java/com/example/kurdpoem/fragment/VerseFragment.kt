@@ -7,8 +7,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.kurdpoem.R
-import com.example.kurdpoem.adapter.ContentBookAdapter
 import com.example.kurdpoem.adapter.VerseAdapter
 import com.example.kurdpoem.adapter.VerseDetailAdapter
 import com.example.kurdpoem.databinding.FragmentVerseBinding
@@ -35,6 +33,11 @@ class VerseFragment : Fragment() {
 
         val id = arguments?.getString("id")!!
         val name = arguments?.getString("name")
+
+
+
+
+
 
         binding.txtName.text = name
 

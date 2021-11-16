@@ -52,7 +52,7 @@ class HomeFragment : Fragment() {
     ): View? {
 
 
-       
+
 
 
         // Inflate the layout for this fragment
@@ -169,6 +169,7 @@ class HomeFragment : Fragment() {
                     val list_data = AllPoemModel(id, name, year)
 
                     val action = HomeFragmentDirections.actionHomeFragmentToPoemFragment()
+
 
 
                     val bundle = Bundle()

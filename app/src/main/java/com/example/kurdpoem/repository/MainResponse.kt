@@ -1,9 +1,12 @@
 package com.example.kurdpoem.repository
 
+import android.content.Context
 import android.util.Log
+import android.widget.Toast
 import androidx.lifecycle.MutableLiveData
 import com.example.kurdpoem.api.ApiClient
 import com.example.kurdpoem.api.ApiService
+import com.example.kurdpoem.fragment.ProfileFragment
 import com.example.kurdpoem.model.*
 import retrofit2.Call
 import retrofit2.Callback
@@ -12,12 +15,13 @@ import retrofit2.Response
 class MainResponse {
 
     var request = ApiClient.getApiClient().create(ApiService::class.java)
+    var context : Context? = null
 
-    fun getNewsBannerMutableLiveData(): MutableLiveData<List<NewsBannerModel>>{
+    fun getNewsBannerMutableLiveData(): MutableLiveData<List<NewsBannerModel>> {
 
         val mutableLiveDataNewsBanner = MutableLiveData<List<NewsBannerModel>>()
 
-        request.getNewsBanner().enqueue(object : Callback<List<NewsBannerModel>>{
+        request.getNewsBanner().enqueue(object : Callback<List<NewsBannerModel>> {
             override fun onResponse(
                 call: Call<List<NewsBannerModel>>,
                 response: Response<List<NewsBannerModel>>
@@ -26,7 +30,7 @@ class MainResponse {
             }
 
             override fun onFailure(call: Call<List<NewsBannerModel>>, t: Throwable) {
-                Log.i("Error" , "onFailure" + t.message)
+                Log.i("Error", "onFailure" + t.message)
             }
 
 
@@ -34,11 +38,11 @@ class MainResponse {
         return mutableLiveDataNewsBanner
     }
 
-    fun getAllPoemMutableLiveData(): MutableLiveData<List<AllPoemModel>>{
+    fun getAllPoemMutableLiveData(): MutableLiveData<List<AllPoemModel>> {
 
         val mutableLiveDataAllPoem = MutableLiveData<List<AllPoemModel>>()
 
-        request.getAllPoem().enqueue(object : Callback<List<AllPoemModel>>{
+        request.getAllPoem().enqueue(object : Callback<List<AllPoemModel>> {
             override fun onResponse(
                 call: Call<List<AllPoemModel>>,
                 response: Response<List<AllPoemModel>>
@@ -47,7 +51,7 @@ class MainResponse {
             }
 
             override fun onFailure(call: Call<List<AllPoemModel>>, t: Throwable) {
-                Log.i("Error" , "onFailure" + t.message)
+                Log.i("Error", "onFailure" + t.message)
             }
 
 
@@ -56,11 +60,11 @@ class MainResponse {
         return mutableLiveDataAllPoem
     }
 
-    fun getAllBooksMutableLiveData(): MutableLiveData<List<AllBooksModel>>{
+    fun getAllBooksMutableLiveData(): MutableLiveData<List<AllBooksModel>> {
 
         val mutableLiveDataAllBooks = MutableLiveData<List<AllBooksModel>>()
 
-        request.getAllBooks().enqueue(object : Callback<List<AllBooksModel>>{
+        request.getAllBooks().enqueue(object : Callback<List<AllBooksModel>> {
             override fun onResponse(
                 call: Call<List<AllBooksModel>>,
                 response: Response<List<AllBooksModel>>
@@ -69,7 +73,7 @@ class MainResponse {
             }
 
             override fun onFailure(call: Call<List<AllBooksModel>>, t: Throwable) {
-                Log.i("Error" , "onFailure" + t.message)
+                Log.i("Error", "onFailure" + t.message)
             }
 
 
@@ -77,11 +81,11 @@ class MainResponse {
         return mutableLiveDataAllBooks
     }
 
-    fun getMutableLiveDataPoemDetail(id: String): MutableLiveData<List<PoemDetailModel>>{
+    fun getMutableLiveDataPoemDetail(id: String): MutableLiveData<List<PoemDetailModel>> {
 
         val mutableLiveDataPoemDetail = MutableLiveData<List<PoemDetailModel>>()
 
-        request.getPoemDetail(id).enqueue(object : Callback<List<PoemDetailModel>>{
+        request.getPoemDetail(id).enqueue(object : Callback<List<PoemDetailModel>> {
             override fun onResponse(
                 call: Call<List<PoemDetailModel>>,
                 response: Response<List<PoemDetailModel>>
@@ -90,18 +94,18 @@ class MainResponse {
             }
 
             override fun onFailure(call: Call<List<PoemDetailModel>>, t: Throwable) {
-                Log.i("Error" , "onFailure" + t.message)
+                Log.i("Error", "onFailure" + t.message)
             }
 
         })
         return mutableLiveDataPoemDetail
     }
 
-    fun getMutableLiveDataAllBooksList(): MutableLiveData<List<AllBooksModel>>{
+    fun getMutableLiveDataAllBooksList(): MutableLiveData<List<AllBooksModel>> {
 
         val mutableLiveDataAllBooksList = MutableLiveData<List<AllBooksModel>>()
 
-        request.getAllBooksList().enqueue(object : Callback<List<AllBooksModel>>{
+        request.getAllBooksList().enqueue(object : Callback<List<AllBooksModel>> {
             override fun onResponse(
                 call: Call<List<AllBooksModel>>,
                 response: Response<List<AllBooksModel>>
@@ -110,7 +114,7 @@ class MainResponse {
             }
 
             override fun onFailure(call: Call<List<AllBooksModel>>, t: Throwable) {
-                Log.i("Error" , "onFailure" + t.message)
+                Log.i("Error", "onFailure" + t.message)
 
             }
 
@@ -118,11 +122,11 @@ class MainResponse {
         return mutableLiveDataAllBooksList
     }
 
-    fun getMutableLiveDataBooksOfPoem(id: String): MutableLiveData<List<AllBooksModel>>{
+    fun getMutableLiveDataBooksOfPoem(id: String): MutableLiveData<List<AllBooksModel>> {
 
         val mutableLiveDataBooksOfPoem = MutableLiveData<List<AllBooksModel>>()
 
-        request.getBooksOfPoem(id).enqueue(object : Callback<List<AllBooksModel>>{
+        request.getBooksOfPoem(id).enqueue(object : Callback<List<AllBooksModel>> {
             override fun onResponse(
                 call: Call<List<AllBooksModel>>,
                 response: Response<List<AllBooksModel>>
@@ -131,7 +135,7 @@ class MainResponse {
             }
 
             override fun onFailure(call: Call<List<AllBooksModel>>, t: Throwable) {
-                Log.i("Error" , "onFailure" + t.message)
+                Log.i("Error", "onFailure" + t.message)
             }
 
 
@@ -139,11 +143,11 @@ class MainResponse {
         return mutableLiveDataBooksOfPoem
     }
 
-    fun getMutableLiveDataBookDetail(id: String): MutableLiveData<List<BookDetailModel>>{
+    fun getMutableLiveDataBookDetail(id: String): MutableLiveData<List<BookDetailModel>> {
 
         val mutableLiveDataBookDetail = MutableLiveData<List<BookDetailModel>>()
 
-        request.getBookDetail(id).enqueue(object : Callback<List<BookDetailModel>>{
+        request.getBookDetail(id).enqueue(object : Callback<List<BookDetailModel>> {
             override fun onResponse(
                 call: Call<List<BookDetailModel>>,
                 response: Response<List<BookDetailModel>>
@@ -152,7 +156,7 @@ class MainResponse {
             }
 
             override fun onFailure(call: Call<List<BookDetailModel>>, t: Throwable) {
-                Log.i("Error" , "onFailure" + t.message)
+                Log.i("Error", "onFailure" + t.message)
             }
 
 
@@ -161,11 +165,11 @@ class MainResponse {
         return mutableLiveDataBookDetail
     }
 
-    fun getMutableLiveDataContentBook(id: String): MutableLiveData<List<ContentBookModel>>{
+    fun getMutableLiveDataContentBook(id: String): MutableLiveData<List<ContentBookModel>> {
 
         val mutableLiveDataContentBook = MutableLiveData<List<ContentBookModel>>()
 
-        request.getContentBook(id).enqueue(object : Callback<List<ContentBookModel>>{
+        request.getContentBook(id).enqueue(object : Callback<List<ContentBookModel>> {
             override fun onResponse(
                 call: Call<List<ContentBookModel>>,
                 response: Response<List<ContentBookModel>>
@@ -174,7 +178,7 @@ class MainResponse {
             }
 
             override fun onFailure(call: Call<List<ContentBookModel>>, t: Throwable) {
-                Log.i("Error" , "onFailure" + t.message)
+                Log.i("Error", "onFailure" + t.message)
             }
 
 
@@ -182,11 +186,11 @@ class MainResponse {
         return mutableLiveDataContentBook
     }
 
-    fun getMutableLiveDataVerseDetail(id: String): MutableLiveData<List<VerseDetailModel>>{
+    fun getMutableLiveDataVerseDetail(id: String): MutableLiveData<List<VerseDetailModel>> {
 
         val mutableLiveDataVerseDetail = MutableLiveData<List<VerseDetailModel>>()
 
-        request.getVerseDetail(id).enqueue(object : Callback<List<VerseDetailModel>>{
+        request.getVerseDetail(id).enqueue(object : Callback<List<VerseDetailModel>> {
             override fun onResponse(
                 call: Call<List<VerseDetailModel>>,
                 response: Response<List<VerseDetailModel>>
@@ -195,7 +199,7 @@ class MainResponse {
             }
 
             override fun onFailure(call: Call<List<VerseDetailModel>>, t: Throwable) {
-                Log.i("Error" , "onFailure" + t.message)
+                Log.i("Error", "onFailure" + t.message)
 
             }
 
@@ -205,11 +209,11 @@ class MainResponse {
         return mutableLiveDataVerseDetail
     }
 
-    fun getMutableLiveDataVerse(id: String): MutableLiveData<List<VerseModel>>{
+    fun getMutableLiveDataVerse(id: String): MutableLiveData<List<VerseModel>> {
 
         val mutableLiveDataVerse = MutableLiveData<List<VerseModel>>()
 
-        request.getVerse(id).enqueue(object : Callback<List<VerseModel>>{
+        request.getVerse(id).enqueue(object : Callback<List<VerseModel>> {
             override fun onResponse(
                 call: Call<List<VerseModel>>,
                 response: Response<List<VerseModel>>
@@ -218,12 +222,61 @@ class MainResponse {
             }
 
             override fun onFailure(call: Call<List<VerseModel>>, t: Throwable) {
-                Log.i("Error" , "onFailure" + t.message)
+                Log.i("Error", "onFailure" + t.message)
             }
 
 
         })
         return mutableLiveDataVerse
     }
+
+    fun getMutableLiveDataSendLogin(phone: String, password: String): MutableLiveData<List<Users>> {
+
+        val mutableLiveDataSendLogin = MutableLiveData<List<Users>>()
+
+        request.sendLogin(phone, password).enqueue(object : Callback<List<Users>> {
+            override fun onResponse(call: Call<List<Users>>, response: Response<List<Users>>) {
+                mutableLiveDataSendLogin.value = response.body()
+            }
+
+            override fun onFailure(call: Call<List<Users>>, t: Throwable) {
+                Log.i("Error", "onFailure" + t.message)
+            }
+
+
+        })
+        return mutableLiveDataSendLogin
+    }
+
+    fun getMutableLiveDataSendRegister(
+        email: String,
+        phone: String,
+        password: String
+    ): MutableLiveData<List<Users>> {
+
+        val mutableLiveDataSendRegister = MutableLiveData<List<Users>>()
+
+        request.sendRegister(email, phone, password).enqueue(object : Callback<List<Users>> {
+            override fun onResponse(call: Call<List<Users>>, response: Response<List<Users>>) {
+                mutableLiveDataSendRegister.value = response.body()
+                if(response.isSuccessful) {
+
+                    Toast.makeText(context, response.message(), Toast.LENGTH_SHORT).show()
+                }else{
+                    Toast.makeText(context, response.message()+"", Toast.LENGTH_SHORT).show()
+                }
+
+            }
+
+            override fun onFailure(call: Call<List<Users>>, t: Throwable) {
+                Log.i("Error", "onFailure" + t.message)
+            }
+
+
+        })
+
+        return mutableLiveDataSendRegister
+    }
+
 
 }

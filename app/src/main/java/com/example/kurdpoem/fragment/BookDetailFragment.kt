@@ -23,6 +23,7 @@ class BookDetailFragment : Fragment() {
     private lateinit var viewModel: ViewModel
 
 
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -58,6 +59,8 @@ class BookDetailFragment : Fragment() {
 
                 val id = listContent.id
                 val name =listContent.name
+
+
 
                 val bundle = Bundle()
                 bundle.putString("id", listContent.id)

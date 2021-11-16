@@ -43,6 +43,7 @@ class AllBooksAdapter(
         holder.setDataAllBook(data[position])
         holder.itemView.setOnClickListener {
             IItemClickListener(holder.binding.root, data[position])
+            
         }
     }
 
@@ -62,7 +63,7 @@ class AllBooksAdapter(
 
                     val filteredPattern = p0.toString()
                     searchList.forEach {
-                        if (it.name.contains(filteredPattern) && it.poem.contains(filteredPattern)){
+                        if (it.name.contains(filteredPattern) || it.poem.contains(filteredPattern)){
                             filteredList.add(it)
                         }
                     }

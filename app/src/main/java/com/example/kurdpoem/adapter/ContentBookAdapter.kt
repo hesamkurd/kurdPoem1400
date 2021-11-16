@@ -38,6 +38,8 @@ class ContentBookAdapter(
         holder.itemView.setOnClickListener {
             IItemClickListener(holder.binding.root , data[position])
         }
+
+
     }
 
     override fun getItemCount(): Int {
