@@ -22,19 +22,21 @@
     <fragment
         android:id="@+id/searchFragment"
         android:name="com.example.kurdpoem.fragment.SearchFragment"
-        tools:layout="@layout/fragment_search" />
+        tools:layout="@layout/fragment_search" >
+
+    </fragment>
     <fragment
         android:id="@+id/favoriteFragment"
         android:name="com.example.kurdpoem.fragment.FavoriteFragment"
-        tools:layout="@layout/fragment_favorite" />
+        tools:layout="@layout/fragment_favorite" >
+        <action
+            android:id="@+id/action_favoriteFragment_to_verseFragment"
+            app:destination="@id/verseFragment" />
+    </fragment>
     <fragment
         android:id="@+id/profileFragment"
         android:name="com.example.kurdpoem.fragment.ProfileFragment"
-        tools:layout="@layout/fragment_profile" >
-        <action
-            android:id="@+id/action_profileFragment_to_loginFragment"
-            app:destination="@id/loginFragment" />
-    </fragment>
+        tools:layout="@layout/fragment_profile" />
     <fragment
         android:id="@+id/poemFragment"
         android:name="com.example.kurdpoem.fragment.PoemFragment"
@@ -67,28 +69,4 @@
         android:name="com.example.kurdpoem.fragment.VerseFragment"
         android:label="fragment_verse"
         tools:layout="@layout/fragment_verse" />
-    <fragment
-        android:id="@+id/loginFragment"
-        android:name="com.example.kurdpoem.fragment.LoginFragment"
-        android:label="fragment_login"
-        tools:layout="@layout/fragment_login" >
-        <action
-            android:id="@+id/action_loginFragment_to_registerFragment"
-            app:destination="@id/registerFragment" />
-        <action
-            android:id="@+id/action_loginFragment_to_profileFragment"
-            app:destination="@id/profileFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/registerFragment"
-        android:name="com.example.kurdpoem.fragment.RegisterFragment"
-        android:label="fragment_register"
-        tools:layout="@layout/fragment_register" >
-        <action
-            android:id="@+id/action_registerFragment_to_loginFragment"
-            app:destination="@id/loginFragment" />
-        <action
-            android:id="@+id/action_registerFragment_to_profileFragment"
-            app:destination="@id/profileFragment" />
-    </fragment>
 </navigation>

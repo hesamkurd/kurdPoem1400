@@ -60,13 +60,7 @@ class ViewModel : ViewModel() {
         return repository.getRepositoryVerse(id)
     }
 
-    fun getSendLogin(phone: String, password: String): LiveData<List<Users>>{
 
-        return repository.getRepositorySendLogin(phone, password)
-    }
 
-    fun getSendRegister(email: String,phone: String, password: String ): LiveData<List<Users>>{
 
-        return repository.getRepositorySendRegister(email, phone, password)
-    }
 }

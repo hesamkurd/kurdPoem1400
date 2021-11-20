@@ -11,7 +11,10 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.kurdpoem.R
 import com.example.kurdpoem.adapter.BookDetailAdapter
 import com.example.kurdpoem.adapter.ContentBookAdapter
+import com.example.kurdpoem.api.ApiClient
+import com.example.kurdpoem.api.ApiService
 import com.example.kurdpoem.databinding.FragmentBookDetailBinding
+import com.example.kurdpoem.model.SharedPref
 import com.example.kurdpoem.viewmodel.ViewModel
 
 
@@ -24,6 +27,7 @@ class BookDetailFragment : Fragment() {
 
 
 
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -33,6 +37,8 @@ class BookDetailFragment : Fragment() {
         binding = FragmentBookDetailBinding.inflate(inflater, container, false)
 
         viewModel = ViewModelProvider(this)[ViewModel::class.java]
+
+
 
         val id = arguments?.getString("id")!!
         val name = arguments?.getString("name")
@@ -71,6 +77,10 @@ class BookDetailFragment : Fragment() {
             binding.recyclerContentBooks.adapter = contentBookAdapter
 
         })
+
+
+
+
 
 
 

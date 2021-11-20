@@ -17,6 +17,8 @@ class VerseAdapter(
         fun setDataVerse(data: VerseModel){
 
             binding.myVerse = data
+
+
         }
     }
 
@@ -30,6 +32,8 @@ class VerseAdapter(
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         holder.setDataVerse(data[position])
+       
+
     }
 
     override fun getItemCount(): Int {

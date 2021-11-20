@@ -2,10 +2,7 @@ package com.example.kurdpoem.api
 
 import com.example.kurdpoem.model.*
 import retrofit2.Call
-import retrofit2.http.Field
-import retrofit2.http.FormUrlEncoded
-import retrofit2.http.GET
-import retrofit2.http.POST
+import retrofit2.http.*
 
 interface ApiService {
 
@@ -48,11 +45,20 @@ interface ApiService {
 
     @FormUrlEncoded
     @POST("login.php")
-    fun sendLogin(@Field("phone")phone: String , @Field("password")password:String): Call<List<Users>>
+    fun sendLogin(@Field("phone")phone: String , @Field("password")password:String): Call<Users>
 
     @FormUrlEncoded
     @POST("register.php")
-    fun sendRegister(@Field("email")email: String, @Field("phone")phone: String, @Field("password")password:String): Call<List<Users>>
+    fun sendRegister(@Field("email")email: String, @Field("phone")phone: String, @Field("password")password:String): Call<Users>
 
+    @FormUrlEncoded
+    @POST("saveFavorite.php")
+    fun sendToFavorite(@Field("id_verse")id_verse:String , @Field("user_email")user_email:String): Call<Message>
+
+    @GET("getListFavorite.php")
+    fun getListFavorite(@Query("user_email")user_email: String): Call<List<FavoriteListModel>>
+
+    @GET("deleteFavorite.php")
+    fun deleteFavorite(@Query("favorite_id")favorite_id:String): Call<Message>
 
 }

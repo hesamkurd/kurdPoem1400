@@ -28,18 +28,6 @@
         android:layout_gravity="right|center_vertical"
         android:layout_marginRight="4dp"/>
 
-    <ImageView
-        android:id="@+id/img_toggle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@drawable/favorite_toogle"
-        android:layout_margin="8dp"
-        android:focusable="false"
-        android:focusableInTouchMode="false"/>
-
-
-
-
 </androidx.cardview.widget.CardView>
 
 </layout>

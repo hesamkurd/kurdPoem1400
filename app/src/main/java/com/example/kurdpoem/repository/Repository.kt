@@ -57,13 +57,5 @@ class Repository {
         return mainResponse.getMutableLiveDataVerse(id)
     }
 
-    fun getRepositorySendLogin(phone: String, password: String): LiveData<List<Users>>{
 
-        return mainResponse.getMutableLiveDataSendLogin(phone, password)
-    }
-
-    fun getRepositorySendRegister(email: String, phone: String, password: String): LiveData<List<Users>>{
-
-        return mainResponse.getMutableLiveDataSendRegister(email, phone, password)
-    }
 }

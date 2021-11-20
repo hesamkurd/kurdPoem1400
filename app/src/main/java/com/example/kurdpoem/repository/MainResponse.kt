@@ -230,53 +230,7 @@ class MainResponse {
         return mutableLiveDataVerse
     }
 
-    fun getMutableLiveDataSendLogin(phone: String, password: String): MutableLiveData<List<Users>> {
 
-        val mutableLiveDataSendLogin = MutableLiveData<List<Users>>()
-
-        request.sendLogin(phone, password).enqueue(object : Callback<List<Users>> {
-            override fun onResponse(call: Call<List<Users>>, response: Response<List<Users>>) {
-                mutableLiveDataSendLogin.value = response.body()
-            }
-
-            override fun onFailure(call: Call<List<Users>>, t: Throwable) {
-                Log.i("Error", "onFailure" + t.message)
-            }
-
-
-        })
-        return mutableLiveDataSendLogin
-    }
-
-    fun getMutableLiveDataSendRegister(
-        email: String,
-        phone: String,
-        password: String
-    ): MutableLiveData<List<Users>> {
-
-        val mutableLiveDataSendRegister = MutableLiveData<List<Users>>()
-
-        request.sendRegister(email, phone, password).enqueue(object : Callback<List<Users>> {
-            override fun onResponse(call: Call<List<Users>>, response: Response<List<Users>>) {
-                mutableLiveDataSendRegister.value = response.body()
-                if(response.isSuccessful) {
-
-                    Toast.makeText(context, response.message(), Toast.LENGTH_SHORT).show()
-                }else{
-                    Toast.makeText(context, response.message()+"", Toast.LENGTH_SHORT).show()
-                }
-
-            }
-
-            override fun onFailure(call: Call<List<Users>>, t: Throwable) {
-                Log.i("Error", "onFailure" + t.message)
-            }
-
-
-        })
-
-        return mutableLiveDataSendRegister
-    }
 
 
 }

@@ -10,6 +10,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.SearchView
+import android.widget.Toast
 import androidx.core.widget.addTextChangedListener
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
@@ -65,6 +66,7 @@ class HomeFragment : Fragment() {
 
 
 
+
         viewModel.getNewsBannerViewModel().observe(viewLifecycleOwner, {
 
             newsBannerAdapter = NewsBannerAdapter(requireContext(), it)
@@ -111,19 +113,6 @@ class HomeFragment : Fragment() {
         binding.recyclerPoem.layoutManager = LinearLayoutManager(requireContext())
         binding.recyclerPoem.hasFixedSize()
 
-        binding.edtSearch.addTextChangedListener(object : TextWatcher {
-            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-
-            }
-
-            override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-                allPoemAdapter.filter.filter(p0)
-            }
-
-            override fun afterTextChanged(p0: Editable?) {
-
-            }
-        })
 
         binding.txtGoFragmentAllBooks.setOnClickListener {
             Navigation.findNavController(binding.mainLinearLayout)
@@ -170,6 +159,23 @@ class HomeFragment : Fragment() {
 
                     val action = HomeFragmentDirections.actionHomeFragmentToPoemFragment()
 
+
+                    binding.edtSearch.addTextChangedListener(object : TextWatcher {
+
+
+                        override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+
+                        }
+
+                        override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+
+                            allPoemAdapter.filter.filter(p0)
+                        }
+
+                        override fun afterTextChanged(p0: Editable?) {
+
+                        }
+                    })
 
 
                     val bundle = Bundle()
